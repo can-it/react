@@ -1,6 +1,29 @@
 {
   "name": "@can-it/react",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/can-it/react.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "authorization",
+    "permissions",
+    "rbac",
+    "acl",
+    "user policy",
+    "react",
+    "can-it",
+    "can-it-utilization"
+  ],
+  "author": "Hai Le <haile.vnm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/can-it/react/issues"
+  },
+  "homepage": "https://github.com/can-it/react#readme",
   "main": "./index.js",
   "types": "./index.d.ts",
   "exports": {
