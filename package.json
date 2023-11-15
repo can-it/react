@@ -51,6 +51,7 @@
     "vitest": "~0.32.0"
   },
   "dependencies": {
+    "@can-it/core": "^0.5.3",
     "@swc/helpers": "~0.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
