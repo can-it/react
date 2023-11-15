@@ -6,12 +6,16 @@ import {
   useReducer
 } from 'react';
 
-import { PolicyState } from '@can-it/types';
+import { Comparator, PolicyState } from '@can-it/types';
 import { Action } from '../models';
 
 type ActionType = 'set' | 'update';
 interface State {
-  policy?: PolicyState
+  policy?: PolicyState,
+  comparators?: {
+    ri?: Comparator;
+    action?: Comparator;
+  }
 }
 
 export type PolicyResolver = (prePolicy?: PolicyState) => PolicyState;
@@ -35,8 +39,12 @@ const policyReducer: Reducer<State, PolicyAction> = (state: State, action: Polic
   }
 };
 
-export function PolicyStore({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer<Reducer<State, PolicyAction>>(policyReducer, {});
+interface PolicyStoreProps extends State {
+  children: ReactNode;
+}
+
+export function PolicyStore({ children, policy, comparators }: PolicyStoreProps) {
+  const [state, dispatch] = useReducer<Reducer<State, PolicyAction>>(policyReducer, { policy, comparators });
 
   return (<PolicyStateContext.Provider value={state}>
     <PolicyDispatchContext.Provider value={dispatch}>
