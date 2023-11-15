@@ -5,7 +5,7 @@ import { useCanIt } from '../hooks/use-can-it'
 interface CanItProps {
   request: Request,
   children: ReactNode,
-  else: ReactNode
+  else?: ReactNode
 }
 
 export function CanIt(props: CanItProps) {
