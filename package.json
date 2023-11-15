@@ -7,6 +7,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
+    "@can-it/types": "link:..\\core\\dist\\libs\\types",
     "@nx/cypress": "17.1.2",
     "@nx/eslint": "17.1.2",
     "@nx/eslint-plugin": "17.1.2",
