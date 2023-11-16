@@ -124,7 +124,7 @@ importers:
         specifier: 4.6.0
         version: 4.6.0(eslint@8.46.0)
       jest:
-        specifier: ^29.4.1
+        specifier: ^29.7.0
         version: 29.7.0(@types/node@18.14.2)(ts-node@10.9.1)
       jest-environment-jsdom:
         specifier: ^29.4.1
