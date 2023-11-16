@@ -55,9 +55,7 @@ export function PolicyStore({ children, policy, comparators }: PolicyStoreProps)
 }
 
 export function usePolicyState() {
-  const { policy } = useContext(PolicyStateContext);
-
-  return { policy };
+  return useContext(PolicyStateContext);
 }
 
 export function usePolicyDispatch() {
