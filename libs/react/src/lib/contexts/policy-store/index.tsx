@@ -3,6 +3,7 @@ import {
   ReactNode,
   Reducer,
   createContext,
+  useContext,
   useReducer
 } from 'react';
 
@@ -18,13 +19,13 @@ interface State {
   }
 }
 
-export type PolicyResolver = (prePolicy?: PolicyState) => PolicyState;
+export type PolicyResolver = (prePolicy?: PolicyState) => PolicyState | undefined;
 
 type PolicyAction<T = State | PolicyResolver> = Action<ActionType, T>;
 
-export const PolicyStateContext = createContext<State>({});
+const PolicyStateContext = createContext<State>({});
 
-export const PolicyDispatchContext = createContext<Dispatch<PolicyAction> | undefined>(undefined);
+const PolicyDispatchContext = createContext<Dispatch<PolicyAction> | undefined>(undefined);
 
 const policyReducer: Reducer<State, PolicyAction> = (state: State, action: PolicyAction) => {
   switch (action.type) {
@@ -51,4 +52,23 @@ export function PolicyStore({ children, policy, comparators }: PolicyStoreProps)
       {children}
     </PolicyDispatchContext.Provider>
   </PolicyStateContext.Provider>);
+}
+
+export function usePolicyState() {
+  const { policy } = useContext(PolicyStateContext);
+
+  return { policy };
+}
+
+export function usePolicyDispatch() {
+  const dispatch = useContext(PolicyDispatchContext);
+
+  if (!dispatch) {
+    throw new Error('You can only use this usePolicyStore inside PolicyStore children');
+  }
+
+  return {
+    set: (policy?: PolicyState) => dispatch({ type: 'set', payload: { policy } }),
+    update: (stateResolver: PolicyResolver) => dispatch({ type: 'update', payload: stateResolver })
+  };
 }
