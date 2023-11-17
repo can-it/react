@@ -1,7 +1,7 @@
 
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { PolicyResolver, PolicyStore, usePolicyDispatch, usePolicyState } from '.';
+import { PolicyResolver, CanItProvider, usePolicyStore, usePolicyState } from '.';
 import { PolicyState, Request } from '@can-it/types';
 
 describe('Context', () => {
@@ -9,7 +9,7 @@ describe('Context', () => {
     const SET_POLICY: PolicyState = { allow: [] };
     function Consumer() {
       const { policy } = usePolicyState();
-      const { set, update } = usePolicyDispatch();
+      const { set, update } = usePolicyStore();
 
       const increaseDeny: PolicyResolver = (pre?: PolicyState) => {
         const request: Request = ['', ''];
@@ -32,7 +32,7 @@ describe('Context', () => {
 
     beforeEach(() => {
       render(
-        <PolicyStore><Consumer></Consumer></PolicyStore>
+        <CanItProvider><Consumer></Consumer></CanItProvider>
       );
     });
     it('should have no policy', () => {
@@ -87,7 +87,7 @@ describe('Context', () => {
         ]
       };
       render(
-        <PolicyStore policy={policy}><Consumer></Consumer></PolicyStore>
+        <CanItProvider policy={policy}><Consumer></Consumer></CanItProvider>
       );
     });
 

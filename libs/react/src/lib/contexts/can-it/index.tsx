@@ -45,7 +45,7 @@ interface PolicyStoreProps extends State {
   children: ReactNode;
 }
 
-export function PolicyStore({ children, policy, comparators }: PolicyStoreProps) {
+export function CanItProvider({ children, policy, comparators }: PolicyStoreProps) {
   const [state, dispatch] = useReducer<Reducer<State, PolicyAction>>(policyReducer, { policy, comparators });
 
   return (<PolicyStateContext.Provider value={state}>
@@ -59,7 +59,7 @@ export function usePolicyState() {
   return useContext(PolicyStateContext);
 }
 
-export function usePolicyDispatch() {
+export function usePolicyStore() {
   const dispatch = useContext(PolicyDispatchContext);
 
   if (!dispatch) {

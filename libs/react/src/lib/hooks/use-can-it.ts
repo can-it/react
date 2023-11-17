@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { usePolicyState } from '../contexts/policy-store';
+import { usePolicyState } from '../contexts/can-it';
 import { CanIt } from '@can-it/core';
 import { Request } from '@can-it/types';
 

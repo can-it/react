@@ -3,17 +3,17 @@ import { ReactNode } from 'react';
 import { useCanIt } from '../hooks/use-can-it';
 
 interface CanItProps {
-  request: Request,
+  allowTo: Request,
   children: ReactNode,
   else?: ReactNode
 }
 
-export function CanIt(props: CanItProps) {
-  const isAllowed = useCanIt(...props.request);
+export function CanIt({ children, allowTo, else: elseElement }: CanItProps) {
+  const isAllowed = useCanIt(...allowTo);
 
   if (isAllowed) {
-    return props.children;
+    return children;
   }
 
-  return props.else;
+  return elseElement;
 }
