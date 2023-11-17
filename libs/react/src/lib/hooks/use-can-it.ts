@@ -4,11 +4,16 @@ import { CanIt } from '@can-it/core';
 import { Request } from '@can-it/types';
 
 export function useCanIt(...request: Request) {
-  const [can, setCan] = useState(false);
+  const [can, setCan] = useState<boolean>();
   const { policy, comparators } = usePolicyState();
 
   useEffect(() => {
-    const canIt = new CanIt(policy || { allow: [] }, comparators?.action, comparators?.ri);
+    if (!policy) {
+      setCan(undefined);
+      return;
+    }
+
+    const canIt = new CanIt(policy, comparators?.action, comparators?.ri);
     setCan(canIt.allowTo(...request));
   }, [request, policy, comparators]);
 
