@@ -3,6 +3,7 @@ import {
   ReactNode,
   Reducer,
   createContext,
+  useCallback,
   useContext,
   useReducer
 } from 'react';
@@ -62,11 +63,21 @@ export function usePolicyDispatch() {
   const dispatch = useContext(PolicyDispatchContext);
 
   if (!dispatch) {
-    throw new Error('You can only use this usePolicyStore inside PolicyStore children');
+    throw new Error('You can only use this usePolicyDispatch inside PolicyStore children');
   }
 
+  const setPolicy = useCallback(
+    (policy?: PolicyState) => dispatch({ type: 'set', payload: { policy } }),
+    [dispatch]
+  );
+
+  const updatePolicy = useCallback(
+    (stateResolver: PolicyResolver) => dispatch({ type: 'update', payload: stateResolver }),
+    [dispatch]
+  );
+
   return {
-    set: (policy?: PolicyState) => dispatch({ type: 'set', payload: { policy } }),
-    update: (stateResolver: PolicyResolver) => dispatch({ type: 'update', payload: stateResolver })
+    set: setPolicy,
+    update: updatePolicy
   };
 }
