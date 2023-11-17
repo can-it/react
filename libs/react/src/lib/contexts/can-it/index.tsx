@@ -35,9 +35,6 @@ const policyReducer: Reducer<State, PolicyAction> = (state: State, action: Polic
 
     case 'update':
       return { ...state, policy: (action.payload as PolicyResolver)(state.policy)};
-
-    default:
-      return state;
   }
 };
 

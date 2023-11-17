@@ -96,4 +96,16 @@ describe('Context', () => {
       expect(screen.getByTestId('deny-count')).toHaveTextContent('2');
     });
   });
+
+  describe('Using outside of CanItProvider', () => {
+    function OutsideConsumer() {
+      const { set } = usePolicyStore();
+
+      set();
+      return <>hello</>;
+    }
+    it('should throw error', () => {
+      expect(() => render(<OutsideConsumer></OutsideConsumer>)).toThrow();
+    });
+  });
 });
