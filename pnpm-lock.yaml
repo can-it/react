@@ -34,8 +34,8 @@ importers:
         specifier: ^7.14.5
         version: 7.23.3(@babel/core@7.23.3)
       '@can-it/types':
-        specifier: link:..\core\dist\libs\types
-        version: link:../core/dist/libs/types
+        specifier: ^0.0.2
+        version: 0.0.2
       '@nx/cypress':
         specifier: 17.1.2
         version: 17.1.2(@swc-node/register@1.6.8)(@swc/core@1.3.96)(@types/node@18.14.2)(cypress@13.5.0)(eslint@8.46.0)(nx@17.1.2)(typescript@5.2.2)
@@ -1557,6 +1557,12 @@ packages:
     dependencies:
       '@swc/helpers': 0.5.3
     dev: false
+
+  /@can-it/types@0.0.2:
+    resolution: {integrity: sha512-NggiR5DXyDaeww5NORutWXTtS/4jqwhSkFA/IMg7d1HcGNmJXMctU2sqY/Ees3NX0J4v6iKt9La/PyCiFUqMpQ==}
+    dependencies:
+      '@swc/helpers': 0.5.3
+    dev: true
 
   /@colors/colors@1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
