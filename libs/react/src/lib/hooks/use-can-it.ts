@@ -9,7 +9,7 @@ export function useCanIt(...request: Request) {
 
   useEffect(() => {
     const canIt = new CanIt(policy || { allow: [] }, comparators?.action, comparators?.ri);
-    setCan(canIt.allowTo(...request))
+    setCan(canIt.allowTo(...request));
   }, [request, policy, comparators]);
 
   return can;

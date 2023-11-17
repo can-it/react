@@ -1,6 +1,6 @@
-import { Request } from '@can-it/types'
-import { ReactNode } from 'react'
-import { useCanIt } from '../hooks/use-can-it'
+import { Request } from '@can-it/types';
+import { ReactNode } from 'react';
+import { useCanIt } from '../hooks/use-can-it';
 
 interface CanItProps {
   request: Request,

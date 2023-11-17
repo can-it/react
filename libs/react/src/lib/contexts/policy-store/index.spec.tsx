@@ -18,7 +18,7 @@ describe('Context', () => {
         }
 
         return { ...pre, deny: (pre.deny || []).concat([request]) };
-      }
+      };
 
       return (<>
         <div>{ !policy && 'policy:empty' || 'policy:presence' }</div>
@@ -33,18 +33,18 @@ describe('Context', () => {
     beforeEach(() => {
       render(
         <PolicyStore><Consumer></Consumer></PolicyStore>
-      )
+      );
     });
     it('should have no policy', () => {
       expect(screen.getByText('policy:empty')).toBeTruthy();
-    })
+    });
 
     it('should able to set policy', () => {
       expect(screen.getByTestId('allow-count')).toHaveTextContent('');
 
       fireEvent.click(screen.getByTestId('initial'));
       expect(screen.getByTestId('allow-count')).toHaveTextContent('0');
-    })
+    });
 
     it('should able to reset policy', () => {
       expect(screen.getByTestId('allow-count')).toHaveTextContent('');
@@ -54,7 +54,7 @@ describe('Context', () => {
 
       fireEvent.click(screen.getByTestId('reset'));
       expect(screen.getByTestId('allow-count')).toHaveTextContent('');
-    })
+    });
 
     it('should able to update policy base on previous policy', () => {
       expect(screen.getByTestId('deny-count')).toHaveTextContent('');
@@ -64,8 +64,8 @@ describe('Context', () => {
 
       fireEvent.click(screen.getByTestId('increase-deny'));
       expect(screen.getByTestId('deny-count')).toHaveTextContent('2');
-    })
-  })
+    });
+  });
 
 
   describe('Using custom props', () => {
@@ -88,12 +88,12 @@ describe('Context', () => {
       };
       render(
         <PolicyStore policy={policy}><Consumer></Consumer></PolicyStore>
-      )
+      );
     });
 
     it('should able to get the custom props', () => {
-      expect(screen.getByTestId('allow-count')).toHaveTextContent('1')
-      expect(screen.getByTestId('deny-count')).toHaveTextContent('2')
-    })
-  })
+      expect(screen.getByTestId('allow-count')).toHaveTextContent('1');
+      expect(screen.getByTestId('deny-count')).toHaveTextContent('2');
+    });
+  });
 });
