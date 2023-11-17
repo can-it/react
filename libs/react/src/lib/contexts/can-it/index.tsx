@@ -38,11 +38,11 @@ const policyReducer: Reducer<State, PolicyAction> = (state: State, action: Polic
   }
 };
 
-interface PolicyStoreProps extends State {
+interface PolicyProviderProps extends State {
   children: ReactNode;
 }
 
-export function CanItProvider({ children, policy, comparators }: PolicyStoreProps) {
+export function CanItProvider({ children, policy, comparators }: PolicyProviderProps) {
   const [state, dispatch] = useReducer<Reducer<State, PolicyAction>>(policyReducer, { policy, comparators });
 
   return (<PolicyStateContext.Provider value={state}>
