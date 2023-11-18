@@ -31,5 +31,11 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
+  },
+  "dependencies": {
+    "@can-it/core": "^0.5.3"
+  },
+  "devDependencies": {
+    "@can-it/types": "^0.0.2"
   }
 }
