@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/can-it/react/issues"
   },
-  "homepage": "https://github.com/can-it/react#readme",
+  "homepage": "https://can-it.github.io/packages/react",
   "main": "./index.js",
   "types": "./index.d.ts",
   "exports": {
