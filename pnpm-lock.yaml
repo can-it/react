@@ -11,6 +11,9 @@ importers:
       '@can-it/core':
         specifier: ^0.5.3
         version: 0.5.3
+      '@can-it/react-r':
+        specifier: npm:@can-it/react@^0.0.2
+        version: /@can-it/react@0.0.2
       '@swc/helpers':
         specifier: ~0.5.2
         version: 0.5.3
@@ -1550,6 +1553,12 @@ packages:
     resolution: {integrity: sha512-+CggUolWg6KAbRd4WYMzUjRFjIZ9nniKgmMlv2gDGFmpky/xQG8THI9sLadocE6CHIRH5npbpiyXrzSbgjlbMg==}
     dependencies:
       '@swc/helpers': 0.5.3
+    dev: false
+
+  /@can-it/react@0.0.2:
+    resolution: {integrity: sha512-g4DbM+MfqFYx9O9xXr0r5qDEyntcr6+2Aikyr43gcyJMM8QMvb0ymACwr4J33qGt47pZm3AEP0IwDOqHe2zxuw==}
+    dependencies:
+      '@can-it/core': 0.5.3
     dev: false
 
   /@can-it/types@0.0.1:
